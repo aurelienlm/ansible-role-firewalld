@@ -5,3 +5,12 @@
 firewalld_allow_services: []
 firewalld_allow_ports: []
 firewalld_disable: false
+
+firewalld_DefaultZone: public
+firewalld_MinimalMark: 100
+firewalld_CleanupOnExit: yes
+firewalld_Lockdown: no
+firewalld_IPv6_rpfilter: yes
+firewalld_IndividualCalls: no
+firewalld_LogDenied: off
+firewalld_AutomaticHelpers: system
