@@ -11,6 +11,8 @@
     owner: root
     group: root
     mode: 0644
+  notify:
+    - firewalld complete reload
 
 - name: Ensure firewalld is running and enabled on boot
   service:
