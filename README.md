@@ -24,6 +24,7 @@ Values for firewalld_zones:
       permanent: [True|False] (default: True)
       state: [present|absent] (default: present)
       interface: [interface]
+      target: [default|ACCEPT|DROP|"%%REJECT%%"]
 
 Values for firewalld_allow_sources:
 
@@ -61,8 +62,8 @@ Example Playbook
     - hosts: servers
       vars:
         firewalld_zones:
-          - { zone: "internal", interface: "ens256", state: "present", permanent: true }
-          - { zone: "dmz", interface: "ens224", state: "present", permanent: true }
+          - { zone: "internal", interface: "ens256", state: "present", target: ACCEPT, permanent: true }
+          - { zone: "dmz", interface: "ens224", state: "present", target: "%%REJECT%%", permanent: true }
         firewalld_allow_services:
           - { service: "http" }
           - { service: "telnet", zone: "dmz", permanent: True, state: "disabled" }
