@@ -88,3 +88,14 @@
   notify: 
     - "firewalld complete restart"
   when: firewalld_disable == false and item.port is defined
+
+- name: Configure firewalld target zones from vars
+  firewalld:
+    zone: "{{ item.zone }}"
+    target: "{{ item.target }}"
+    state: "{{ item.state | default (present) }}"
+    permanent: "{{ item.permanent | default (True) }}"
+  loop: "{{ firewalld_zones }}"
+  notify:
+    - "firewalld complete restart"
+  when: firewalld_disable == false and item.target is defined
