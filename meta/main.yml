@@ -3,7 +3,7 @@ galaxy_info:
   author: Sean O'Keeffe
   description: A module to configure firewalld zones and rules. Forked from marcelnijenhof.firewalld.
   license: BSD
-  min_ansible_version: 1.4
+  min_ansible_version: 2.9
   platforms:
   - name: EL
     versions:

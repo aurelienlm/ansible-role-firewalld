@@ -29,7 +29,7 @@
   when: firewalld_disable == true
 
 - name: Configure firewalld zones from vars
-  firewalld:
+  ansible.posix.firewalld:
     zone: "{{ item.zone }}"
     permanent: "{{ item.permanent | default (True) }}"
     state: "{{ item.state | default (present) }}"
@@ -54,7 +54,7 @@
   tags: firewalld
 
 - name: Add firewalld rules for sources from vars
-  firewalld:
+  ansible.posix.firewalld:
     source: "{{ item.source }}"
     zone: "{{ item.zone | default (public) }}"
     permanent: "{{ item.permanent | default (True) }}"
@@ -66,7 +66,7 @@
   when: firewalld_disable == false and item.source is defined
 
 - name: Add firewalld rules for services from vars
-  firewalld:
+  ansible.posix.firewalld:
     service: "{{ item.service }}"
     zone: "{{ item.zone | default (public) }}"
     permanent: "{{ item.permanent | default (True) }}"
@@ -78,7 +78,7 @@
   when: firewalld_disable == false and item.service is defined
 
 - name: Add firewalld rules for ports from vars
-  firewalld:
+  ansible.posix.firewalld:
     port: "{{ item.port }}"
     zone: "{{ item.zone | default (public) }}"
     permanent: "{{ item.permanent | default (True) }}"
@@ -90,7 +90,7 @@
   when: firewalld_disable == false and item.port is defined
 
 - name: Configure firewalld target zones from vars
-  firewalld:
+  ansible.posix.firewalld:
     zone: "{{ item.zone }}"
     target: "{{ item.target }}"
     state: "{{ item.state | default (present) }}"

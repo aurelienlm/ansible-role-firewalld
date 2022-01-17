@@ -6,7 +6,11 @@ Uses firewalld on CentOS/Redhat 7 or Fedora 21/22 to configure the firewall zone
 Requirements
 ------------
 
-The ansible module firewalld is used for the configuration.
+The ansible firewalld module has been moved to the ansible.posix collection. This feature will be removed from community.general in version 2.0.0.
+
+If needed, install the ansible.posix collection:
+
+  ansible-galaxy collection install ansible.posix
 
 Role Variables
 --------------
